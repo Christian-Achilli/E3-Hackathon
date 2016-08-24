@@ -2,12 +2,12 @@
 var neo4j = require('node-neo4j');
 
 //Create a db object. We will using this object to work on the DB.
-db = new neo4j('http://localhost:7474');
+var db = new neo4j('http://neo4j:chris@localhost:7474');
 
 //Run raw cypher with params
 db.cypherQuery(
     'CREATE (somebody:Person { name: {name}, from: {company}, age: {age} }) RETURN somebody',
-    {
+{
         name: 'Ghuffran',
         company: 'Modulus',
         age: ~~(Math.random() * 100) //generate random age
@@ -19,3 +19,5 @@ db.cypherQuery(
         console.log(result.columns); // delivers an array of names of objects getting returned
     }
 );
+
+module.exports = db;
