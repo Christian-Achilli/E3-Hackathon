@@ -22,6 +22,23 @@ app.get('/listapps', function (req, res) {
 		);
 })
 
+// List all apps
+app.get('/app/:csi', function (req, res) {
+	db.cypherQuery(
+		    'MATCH (s:System {csi:{ csi }}) RETURN s',
+		    req.params
+		     , function (err, result) {
+		        if (err) {
+		            return console.log(err);
+		        }
+		        console.log(result.data); // delivers an array of query results
+		        console.log(result.columns); // delivers an array of names of objects getting returned
+		        
+		        res.end(JSON.stringify(result.data));
+		    }
+		);
+})
+
 // add new connection
 app.post('/addapp', function (req, res) {
 	console.log(req.body);
