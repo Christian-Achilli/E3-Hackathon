@@ -44,7 +44,7 @@ app.post('/addapp', function (req, res) {
 	console.log(req.body);
 	db.cypherQuery(
 		    'MATCH (s:System {csi : { from_csi }}) ' +
-		    'CREATE (s)-[:CONNECT]->(t:System {csi:{ to_csi }, name:{ name }}) ' +
+		    'MERGE (s)-[:CONNECT]->(t:System {csi:{ to_csi }, name:{ name }}) ' +
 		    'RETURN s, t',
 		    req.body,
 		    function (err, result) {
