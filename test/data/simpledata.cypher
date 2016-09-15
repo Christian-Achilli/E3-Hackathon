@@ -1,5 +1,4 @@
-create (s:System {name:"citissi", csi:"156959", dev_uri:"http://ssiapi-dev.nam.nsroot.net", sit_uri:"http://ssiapi-sit.nam.nsroot.net", uat_uri:"http://ssiapi-uat.nam.nsroot.net"})
-return s
+44444444444444444444444444444444
 
 match (s:System {name:"citissi"})
 create (s)-[:CONNECT]->(s1:System {name:"Monet", csi:"111111"})

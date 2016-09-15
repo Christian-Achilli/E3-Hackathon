@@ -1,5 +1,16 @@
-extends layout
-
-block content
-    h1= title
-    p Hello! #{title}
+doctype html
+html
+    head
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        title= title
+        link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+        link(rel='stylesheet', href='/stylesheets/index.css')
+    body
+        block content
+            .container
+                form.form-signin(action="/addapp", method="post", )
+                    h2.form-signin-heading Please Enter Your App Details
+                    input.input-block-level(type="text", name="from_csi", placeholder="csi-id")
+                    input.input-block-level(type="text", name="name", placeholder="application name")
+                    input.input-block-level(type="text", name="to_csi", placeholder="downstream app id")
+                    button.btn.btn-large.btn-primary(type="submit") Submit

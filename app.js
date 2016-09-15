@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var addAppsForm = require('./routes/addform');
+var appapi = require('./routes/appapi');
 
 var neodao = require('./dao/neo4jdao');
 
@@ -33,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/addAppForm', addAppsForm);
+app.use('/', appapi);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
